@@ -126,3 +126,7 @@ div.mainHomeContainer {
 .mainButton:hover {
     transform: translateY(-10px);
 }
+
+.creator {
+    color: black;
+}
