@@ -16,10 +16,15 @@ function HomeContainer() {
                     <Link to="/creator/1-8">
                         <div className="mainButtonContainer">
                             <button className="mainButton">
-                                <span>Stwórzmy go!D</span>
+                                <span>Stwórzmy go!</span>
                             </button>
                         </div>
                     </Link>
+                </div>
+                <div className="knowMoreContainer">
+                    Dowiedź się więcej!<br /><br />
+                    {/*Yes I know this arrow sucks lol*/}
+                    <span className="pseudoArrow">\/</span>
                 </div>
             </div>
         </div>
