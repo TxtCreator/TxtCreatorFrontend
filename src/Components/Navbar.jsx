@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import Logo from "../../public/logo22.png";
+import Logo from "../assets/logo22.png";
 
 function Navbar() {
   return (
@@ -19,7 +19,7 @@ function Navbar() {
                   <Link to={"/about"}>O Nas</Link>
                 </li>
                 <li>
-                  <Link to={"/creator/1.8"}>Stwórz TxT</Link>
+                  <Link to={"/creator/1-8"}>Stwórz TxT</Link>
                 </li>
               </ul>
             </nav>

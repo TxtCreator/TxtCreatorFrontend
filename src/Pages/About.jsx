@@ -2,7 +2,7 @@ import React from 'react';
 
 import ComponentHomeContainer from '../Components/HomeContainer';
 
-function Home() {
+function About() {
     return (
         <>
             <ComponentHomeContainer />
@@ -10,4 +10,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default About;

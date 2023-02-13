@@ -13,7 +13,7 @@ function HomeContainer() {
                             Narzędzie dzięki któremu w łatwy sposób stworzysz swój <br />wymarzony resourcepack.
                         </span>
                     </div>
-                    <Link to="/creator/1.8">
+                    <Link to="/creator/1-8">
                         <div className="mainButtonContainer">
                             <button className="mainButton">
                                 <span>Stwórzmy go!D</span>
