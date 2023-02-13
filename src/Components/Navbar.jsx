@@ -7,19 +7,19 @@ function Navbar() {
     <header>
             <div>
               <Link to={"/"}>
-                <img src={Logo} alt="logo" width="82px" />
+                <img src={Logo} alt="logo" width="56px" />
               </Link>
             </div>
             <nav>
               <ul>
                 <li>
-                  <Link to={"/"}>Home</Link>
+                  <Link to={"/"}>Strona główna</Link>
                 </li>
                 <li>
-                  <Link to={"/about"}>About</Link>
+                  <Link to={"/about"}>O Nas</Link>
                 </li>
                 <li>
-                  <Link to={"/contact"}>Contact</Link>
+                  <Link to={"/creator/1.8"}>Stwórz TxT</Link>
                 </li>
               </ul>
             </nav>
@@ -27,4 +27,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar;
