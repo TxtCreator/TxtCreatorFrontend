@@ -16,7 +16,7 @@ function HomeContainer() {
                     <Link to="/creator/1.8">
                         <div className="mainButtonContainer">
                             <button className="mainButton">
-                                <span>Stwórzmy go!</span>
+                                <span>Stwórzmy go!D</span>
                             </button>
                         </div>
                     </Link>
