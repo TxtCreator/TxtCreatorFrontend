@@ -240,3 +240,11 @@ div.mainHomeContainer {
     font-weight: 500;
     color: #000000;
 }
+
+.creator {
+    color: black;
+}
+
+.greenBorder {
+    border: green 3px solid;
+}

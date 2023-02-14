@@ -11,7 +11,7 @@ function HowMuchUsers() {
                     <div className="HowMuchUsersItem">
                         <CountUp
                             start={0}
-                            end={30}
+                            end={99999}
                             duration={3}
                         >
                             {({ countUpRef, start }) => (
