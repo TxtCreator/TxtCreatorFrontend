@@ -4,7 +4,7 @@ function HowItWork() {
     return (
         <div className="howItWork">
             <div>
-                <span className="howItWorkTitle">Jak to działa?</span><br /><br />
+                <span className="howItWorkTitle">Jak działa nasza strona?</span><br /><br />
                 <div className="howItWorkContent">
                     <div className="howItWorkItem">
                         <span className="howItWorkItemTitle">Zacznij</span><br />

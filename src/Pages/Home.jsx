@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ComponentHomeContainer from '../Components/HomeContainer';
+import ComponentHowMuchUsers from '../Components/HowMuchUsers';
 import ComponentHowItWork from '../Components/HowItWork';
 import ComponentFooter from '../Components/Footer';
 
@@ -9,7 +10,8 @@ function Home() {
         <>
             <ComponentHomeContainer />
             <ComponentHowItWork />
-            <ComponentFooter />
+            <ComponentHowMuchUsers />
+            {/*<ComponentFooter />*/}
         </>
     );
 }
