@@ -3,7 +3,6 @@ import {useParams} from "react-router-dom";
 import axios from "axios";
 import FileSaver from 'file-saver';
 
-// const API_URL = "http://localhost:5049";
 const API_URL = "https://api.txtcreator.pl";
 
 const txtModel = {
