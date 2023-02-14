@@ -5,7 +5,7 @@ import ComponentHomeContainer from '../Components/HomeContainer';
 function About() {
     return (
         <>
-            <ComponentHomeContainer />
+            <h1>about</h1>
         </>
     );
 }
