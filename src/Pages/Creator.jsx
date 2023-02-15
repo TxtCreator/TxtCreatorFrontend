@@ -5,11 +5,7 @@ import FileSaver from 'file-saver';
 
 const API_URL = "https://api.txtcreator.pl";
 
-const txtModel = {
-    name: "texturepack",
-    textures: {
-    }
-}
+
 
 function Creator() {
     const { version } = useParams();
@@ -18,8 +14,11 @@ function Creator() {
     const [textures, setTextures] = useState([]);
     const [minecraftPath, setMinecraftPath] = useState("");
     const [error, setError] = useState(null);
-
-    let texturesLength = 0;
+    const [txtModel, setTxtModel] = useState({
+        name: "texturepack",
+        textures: {
+        }
+    });
 
     function addOrRemoveTexture(texture) {
         const textureType = texture.replace(/\/p\d*(.+?)/, "").replaceAll("9", "");
@@ -27,20 +26,29 @@ function Creator() {
             for (const [key] of Object.entries(txtModel.textures)) {
                 const keyTexture = key.replace(/\/p\d*(.+?)/, "").replaceAll("9", "");
                 if (keyTexture === textureType) {
-                    delete txtModel.textures[key];
+                    const newTxtModelTextures = txtModel.textures;
+                    delete newTxtModelTextures[key];
+                    setTxtModel({...txtModel, textures: {
+                            ...newTxtModelTextures
+                        }})
+                    // delete txtModel.textures[key];
                 }
             }
-            txtModel.textures[texture] = minecraftPath;
-            texturesLength++;
+            // txtModel.textures[texture] = minecraftPath;
+            const newTxtModelTextures = txtModel.textures;
+            newTxtModelTextures[texture] = minecraftPath;
+            setTxtModel({...txtModel, textures: {
+                    ...newTxtModelTextures
+                }})
         } else {
-            delete txtModel.textures[texture];
-            texturesLength--;
+            // delete txtModel.textures[texture];
+            const newTxtModelTextures = txtModel.textures;
+            delete newTxtModelTextures[texture];
+            setTxtModel({...txtModel, textures: {
+                    ...newTxtModelTextures
+                }})
         }
         setTextures([...textures]);
-    }
-
-    function getTexturesLength() {
-        return texturesLength;
     }
 
     async function downloadTxt() {
@@ -73,6 +81,7 @@ function Creator() {
 
     return (
         <div className="creator">
+
             <div className="creatorLeftSide creatorLeft">
                 <div className="top">Grupy tekstur</div>
                 <div className="content">
@@ -92,7 +101,7 @@ function Creator() {
                 </div>
             </div>
             <div className="creatorRightSide creatorRight">
-                <div className="top">Pod grupy tekstur</div>
+                <div className="top">Podgrupy tekstur</div>
                 <div className="content">
                     {
                         subCategories.map((subCategory, index) => (
@@ -109,7 +118,7 @@ function Creator() {
                 </div>
             </div>
             <div className="creatorRightDownSide creatorRightDown">
-                <div className="top">Pod grupy tekstur</div>
+                <div className="top">Tekstury</div>
                 <div className="content">
                     {
                         textures.map((texture, index) => {
@@ -120,18 +129,18 @@ function Creator() {
                             }
                         })
                     }
-                    {error !== null && <h1>{error}</h1>}
                 </div>
 
             </div>
             <div className="creatorFooterSide creatorFooter">
                 <div className="top">
-                    Informacje na temat twojej tekstury
+                    Informacje na temat twojego txt
                 </div>
                 <div className="content">
                     <span className="creatorFooterText">
-                        <a href="#" onClick={downloadTxt}>Pobierz TXT</a>, który posiada w sobie { getTexturesLength() } tekstur.
+                        <a href="#" onClick={downloadTxt}>Pobierz TXT</a>, który posiada w sobie {Object.keys(txtModel.textures).length} tekstur/y.
                     </span>
+                    {error !== null && <p>{error}</p>}
                 </div>
             </div>
         </div>
