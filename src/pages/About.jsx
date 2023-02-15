@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ComponentHomeContainer from '../Components/HomeContainer';
+import ComponentHomeContainer from '../components/HomeContainer';
 
 function About() {
     return (

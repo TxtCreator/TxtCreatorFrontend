@@ -15,11 +15,11 @@ function Navbar() {
                 <li>
                   <Link to={"/"}>Strona główna</Link>
                 </li>
+                {/*<li>*/}
+                {/*  <Link to={"/about"}>O Nas</Link>*/}
+                {/*</li>*/}
                 <li>
-                  <Link to={"/about"}>O Nas</Link>
-                </li>
-                <li>
-                  <Link to={"/creator/1-8"}>Stwórz TxT</Link>
+                  <Link to={"/creator"}>Stwórz TXT</Link>
                 </li>
               </ul>
             </nav>

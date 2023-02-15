@@ -6,14 +6,14 @@ function HomeContainer() {
             <div className="mainHomeContainer">
                 <div>
                     <div className="mainTitleContainer">
-                        <span>TxT Creator</span>
+                        <span>TxtCreator</span>
                     </div>
                     <div className="mainDescriptionContainer">
                         <span>
-                            Narzędzie dzięki któremu w łatwy sposób stworzysz swój <br />wymarzony resourcepack.
+                            Narzędzie dzięki któremu w łatwy sposób stworzysz swój <br />wymarzony txtpack.
                         </span>
                     </div>
-                    <Link to="/creator/1-8">
+                    <Link to="/creator">
                         <div className="mainButtonContainer">
                             <button className="mainButton">
                                 <span>Stwórzmy go!</span>

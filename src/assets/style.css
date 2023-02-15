@@ -195,8 +195,14 @@ div.mainHomeContainer {
     align-items: center;
     justify-content: center;
     background-color: #040404;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 800;
+}
+
+.footer a {
+    margin: 6px;
+    color: #0089ec;
+    text-decoration: none;
 }
 
 .HowMuchUsers {
@@ -299,6 +305,10 @@ div.mainHomeContainer {
     padding: 5px 10px;
 }
 
+.click {
+    cursor: pointer;
+}
+
 .creatorRightSide .top {
     top: 0;
     padding: 4px 10px;
@@ -329,6 +339,7 @@ div.mainHomeContainer {
 
 .creatorRightDownSide .content {
     padding: 15px 10px;
+
 }
 
 .creatorFooterSide {
@@ -371,6 +382,24 @@ div.mainHomeContainer {
     /*padding: 10px 10px;*/
 }
 
-.greenBorder {
+.textureBorder {
     border: #0089ec 1px solid;
+}
+
+.chooseVersion {
+    font-weight: bold;
+    background-color: #090909;
+}
+
+.chooseVersion span {
+    margin: 10px;
+    font-size: 30px;
+}
+
+.chooseVersion a {
+    margin: 10px;
+    font-size: 20px;
+    color: #0089ec;
+    text-decoration: none;
+    cursor: pointer;
 }
