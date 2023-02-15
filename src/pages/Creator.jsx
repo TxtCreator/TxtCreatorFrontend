@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
 import axios from "axios";
 import FileSaver from 'file-saver';
 
@@ -8,7 +7,7 @@ const API_URL = "https://api.txtcreator.pl";
 
 
 function Creator() {
-    const { version } = useParams();
+    const [version, setVersion] = useState("1.8");
     const [categories, setCategories] = useState([]);
     const [subCategories, setSubCategories] = useState([]);
     const [textures, setTextures] = useState([]);
@@ -31,17 +30,14 @@ function Creator() {
                     setTxtModel({...txtModel, textures: {
                             ...newTxtModelTextures
                         }})
-                    // delete txtModel.textures[key];
                 }
             }
-            // txtModel.textures[texture] = minecraftPath;
             const newTxtModelTextures = txtModel.textures;
             newTxtModelTextures[texture] = minecraftPath;
             setTxtModel({...txtModel, textures: {
                     ...newTxtModelTextures
                 }})
         } else {
-            // delete txtModel.textures[texture];
             const newTxtModelTextures = txtModel.textures;
             delete newTxtModelTextures[texture];
             setTxtModel({...txtModel, textures: {
@@ -69,81 +65,93 @@ function Creator() {
 
     useEffect(() => {
         async function getCategories() {
-            const data = (await axios.get(API_URL + "/txt/categories/" + version.replace("-", "."))).data;
-            setCategories(data);
+            try {
+                const data = (await axios.get(API_URL + "/txt/categories/" + version)).data;
+                setCategories(data);
+            } catch (exception) {
+                setCategories([]);
+            }
         }
         getCategories();
-    }, []);
+    }, [version]);
 
     useEffect(() => {
         setTextures([]);
     }, [subCategories]);
 
     return (
-        <div className="creator">
+        <>
+            <div className="chooseVersion">
+                <span>Wybierz wersję</span>
+                <a onClick={() => setVersion("1.8")}>1.8</a>
+                <a onClick={() => setVersion("1.16")}>1.16</a>
+            </div>
+            <div className="creator">
 
-            <div className="creatorLeftSide creatorLeft">
-                <div className="top">Grupy tekstur</div>
-                <div className="content">
-                    {
-                        categories.map((category, index) => (
-                            <div>
-                            <span onClick={() => {
+                <div className="creatorLeftSide creatorLeft">
+                    <div className="top">Grupy tekstur {version}</div>
+                    <div className="content">
+                        {
+                            categories.map((category, index) => (
+                                <div key={index}>
+                            <span className="click" onClick={() => {
                                 setSubCategories(category.subCategories);
                                 setMinecraftPath(category.minecraftPath);
-                            }} key={index}>
+                            }} >
                                 {category.name[0].toUpperCase() + category.name.slice(1)}
                             </span>
-                                <br />
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
-            <div className="creatorRightSide creatorRight">
-                <div className="top">Podgrupy tekstur</div>
-                <div className="content">
-                    {
-                        subCategories.map((subCategory, index) => (
-                            (
-                                <div>
-                                <span key={index} onClick={() => setTextures(subCategory.textures)}>
-                                    {subCategory.name[0].toUpperCase() + subCategory.name.slice(1)}
-                                </span>
                                     <br />
                                 </div>
-                            )
-                        ))
-                    }
+                            ))
+                        }
+                    </div>
                 </div>
-            </div>
-            <div className="creatorRightDownSide creatorRightDown">
-                <div className="top">Tekstury</div>
-                <div className="content">
-                    {
-                        textures.map((texture, index) => {
-                            if (txtModel.textures[texture] !== undefined) {
-                                return <img height="100" key={index} className="greenBorder" onClick={(event) => addOrRemoveTexture(texture, minecraftPath, event.target)} src={API_URL + "/" + texture} />
-                            } else {
-                                return <img height="100" key={index} onClick={() => addOrRemoveTexture(texture)} src={API_URL + "/" + texture} />
-                            }
-                        })
-                    }
+                <div className="creatorRightSide creatorRight">
+                    <div className="top">Podgrupy tekstur</div>
+                    <div className="content">
+                        {
+                            subCategories.map((subCategory, index) => (
+                                (
+                                    <div key={index}>
+                                <span className="click" onClick={() => setTextures(subCategory.textures)}>
+                                    {subCategory.name[0].toUpperCase() + subCategory.name.slice(1)}
+                                </span>
+                                        <br />
+                                    </div>
+                                )
+                            ))
+                        }
+                    </div>
                 </div>
+                <div className="creatorRightDownSide creatorRightDown">
+                    <div className="top">Tekstury</div>
+                    <div className="content">
+                        {
+                            textures.map((texture, index) => {
+                                if (txtModel.textures[texture] !== undefined) {
+                                    return <img height="100" key={index} className="textureBorder click" onClick={(event) => addOrRemoveTexture(texture, minecraftPath, event.target)} src={API_URL + "/" + texture} />
+                                } else {
+                                    return <img className="click" height="100" key={index} onClick={() => addOrRemoveTexture(texture)} src={API_URL + "/" + texture} />
+                                }
+                            })
+                        }
+                    </div>
 
-            </div>
-            <div className="creatorFooterSide creatorFooter">
-                <div className="top">
-                    Informacje na temat twojego txt
                 </div>
-                <div className="content">
+                <div className="creatorFooterSide creatorFooter">
+                    <div className="top">
+                        Informacje na temat twojego txt
+                    </div>
+                    <div className="content">
                     <span className="creatorFooterText">
                         <a href="#" onClick={downloadTxt}>Pobierz TXT</a>, który posiada w sobie {Object.keys(txtModel.textures).length} tekstur/y.
                     </span>
-                    {error !== null && <p>{error}</p>}
+                        {error !== null && <p>{error}</p>}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
+
     );
 }
 

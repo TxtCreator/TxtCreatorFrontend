@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 function HowItWork() {
     return (
         <div className="howItWork">
@@ -8,7 +6,7 @@ function HowItWork() {
                 <div className="howItWorkContent">
                     <div className="howItWorkItem">
                         <span className="howItWorkItemTitle">Zacznij</span><br />
-                        <span className="howItWorkItemDesc">Wejdź na naszą strone i kliknij przycisk "Stwórz TxT"</span>
+                        <span className="howItWorkItemDesc">Wejdź na naszą strone i kliknij przycisk "Stwórz TXT"</span>
                     </div>
                     <div className="howItWorkItem">
                         <span className="howItWorkItemTitle">Wybierz</span><br />
@@ -16,7 +14,7 @@ function HowItWork() {
                     </div>
                     <div className="howItWorkItem">
                         <span className="howItWorkItemTitle">Pobierz</span><br />
-                        <span className="howItWorkItemDesc">Jeżeli już wszystko wybrałeś pobierz swój resourcepack. Miłego używania!</span>
+                        <span className="howItWorkItemDesc">Jeżeli już wszystko wybrałeś pobierz swój txtpack. Miłego używania!</span>
                     </div>
                 </div>
             </div>

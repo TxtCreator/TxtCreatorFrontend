@@ -1,23 +1,25 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import NoPage from "./Pages/NoPage.jsx";
-import Creator from "./Pages/Creator.jsx";
+import NoPage from "./pages/NoPage.jsx";
+import Creator from "./pages/Creator.jsx";
 import React from "react";
-import Home from "./Pages/Home.jsx";
-import ComponentNavbar from "./Components/Navbar.jsx";
-import About from "./Pages/About.jsx";
+import Home from "./pages/Home.jsx";
+import Navbar from "./components/Navbar.jsx";
+import About from "./pages/About.jsx";
+import Footer from "./components/Footer.jsx";
 
 
 function App() {
   return (
       <>
           <BrowserRouter>
-              <ComponentNavbar />
+              <Navbar />
               <Routes>
-                  <Route path="/" element={ <Home /> }/>
-                  <Route path="creator/:version" element={<Creator />} />
+                  <Route path="/" element={<Home />}/>
+                  <Route path="creator" element={<Creator />} />
                   <Route path="about" element={<About />} />
-                  <Route path="*" element={ <NoPage /> } />
+                  <Route path="*" element={<NoPage />} />
               </Routes>
+              <Footer />
           </BrowserRouter>
       </>
   )
