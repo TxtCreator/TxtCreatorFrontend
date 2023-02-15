@@ -72,6 +72,15 @@ function Creator() {
                 setCategories([]);
             }
         }
+        setTextures([]);
+        setError([]);
+        setSubCategories([]);
+        setMinecraftPath("");
+        setTxtModel({
+            name: "texturepack",
+            textures: {
+            }
+        });
         getCategories();
     }, [version]);
 
