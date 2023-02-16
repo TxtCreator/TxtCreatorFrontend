@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import FileSaver from 'file-saver';
+import {useParams} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const API_URL = "https://api.txtcreator.pl";
 
 function Creator() {
-    const [version, setVersion] = useState("1.0");
+    const { version } = useParams();
     const [categories, setCategories] = useState([]);
     const [subCategories, setSubCategories] = useState([]);
     const [textures, setTextures] = useState([]);
@@ -64,23 +66,14 @@ function Creator() {
     useEffect(() => {
         async function getCategories() {
             try {
-                const data = (await axios.get(API_URL + "/txt/categories/" + version)).data;
+                const data = (await axios.get(API_URL + "/txt/categories/" + version.replace("-", "."))).data;
                 setCategories(data);
             } catch (exception) {
                 setCategories([]);
             }
         }
-        setTextures([]);
-        setError([]);
-        setSubCategories([]);
-        setMinecraftPath("");
-        setTxtModel({
-            name: "texturepack",
-            textures: {
-            }
-        });
         getCategories();
-    }, [version]);
+    }, []);
 
     useEffect(() => {
         setTextures([]);
@@ -88,16 +81,10 @@ function Creator() {
 
     return (
         <>
-            <div className="chooseVersion">
-                <span>Wybierz wersję</span>
-                <a onClick={() => setVersion("1.8")}>1.8</a>
-                <a onClick={() => setVersion("1.16")}>1.16</a>
-            </div>
             <div className="creator">
-
                 <div className="creatorLeftSide creatorLeft">
-                    <div className="top">Grupy tekstur {version}</div>
-                    <div className="content">
+                    {/*<div className="top">Grupy tekstur {version}</div>*/}
+                    <div className="creatorItemContent">
                         {
                             categories.map((category, index) => (
                                 <div key={index}>
@@ -107,15 +94,14 @@ function Creator() {
                             }} >
                                 {category.name[0].toUpperCase() + category.name.slice(1)}
                             </span>
-                                    <br />
                                 </div>
                             ))
                         }
                     </div>
                 </div>
                 <div className="creatorRightSide creatorRight">
-                    <div className="top">Podgrupy tekstur</div>
-                    <div className="content">
+                    {/*<div className="top">Podgrupy tekstur</div>*/}
+                    <div className="creatorItemContent">
                         {
                             subCategories.map((subCategory, index) => (
                                 (
@@ -131,8 +117,8 @@ function Creator() {
                     </div>
                 </div>
                 <div className="creatorRightDownSide creatorRightDown">
-                    <div className="top">Tekstury</div>
-                    <div className="content">
+                    {/*<div className="top">Tekstury</div>*/}
+                    <div className="creatorItemContent">
                         {
                             textures.map((texture, index) => {
                                 if (txtModel.textures[texture] !== undefined) {
@@ -146,10 +132,10 @@ function Creator() {
 
                 </div>
                 <div className="creatorFooterSide creatorFooter">
-                    <div className="top">
-                        Informacje na temat twojego txt
-                    </div>
-                    <div className="content">
+                    {/*<div className="top">*/}
+                    {/*    Informacje na temat twojego txt*/}
+                    {/*</div>*/}
+                    <div className="creatorItemContent">
                     <span className="creatorFooterText">
                         <a href="#" onClick={downloadTxt}>Pobierz TXT</a>, który posiada w sobie {Object.keys(txtModel.textures).length} tekstur/y.
                     </span>
@@ -158,7 +144,6 @@ function Creator() {
                 </div>
             </div>
         </>
-
     );
 }
 
