@@ -56,6 +56,10 @@ header nav ul li {
     margin: 0 20px;
 }
 
+.navbar-icon {
+    width: 56px;
+}
+
 header nav ul li a {
     color: #f7faf7;
     text-decoration: none;
@@ -152,6 +156,11 @@ div.mainHomeContainer {
     text-align: center;
 }
 
+.mainHomeContainer div {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .howItWorkTitle {
     font-size: 46px;
     font-weight: 700;
@@ -161,16 +170,57 @@ div.mainHomeContainer {
 }
 
 .howItWorkContent {
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
+    display: grid;
+    gap: 10%;
+    padding: 0px 10%;
+}
+
+@media (min-width: 992px) {
+    .howItWorkContent { 
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+@media (max-width: 826px) {
+    .mainTitleContainer { 
+        font-size: 60px; 
+    }
+
+    .mainDescriptionContainer { 
+        font-size: 18px; 
+    }
+
+    .mainButton {
+        padding: 6px 20px;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    header nav ul li a {
+        font-size: 14px;
+    }
+
+    .howItWorkTitle {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 518px) {
+    header nav ul li {
+        margin: 0 10px;
+    }
+
+    .navbar-icon {
+        width: 37px;
+    }
 }
 
 .howItWorkContent .howItWorkItem {
-    margin-top: 20px;
-    width: calc(3 * 15vh);
-    margin-left: 50px;
-    margin-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .howItWorkContent .howItWorkItem .howItWorkItemTitle {
@@ -186,23 +236,6 @@ div.mainHomeContainer {
     font-size: 20px;
     font-weight: 500;
     color: #000000;
-}
-
-.footer {
-    width: 100%;
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #040404;
-    font-size: 20px;
-    font-weight: 800;
-}
-
-.footer a {
-    margin: 6px;
-    color: #0089ec;
-    text-decoration: none;
 }
 
 .HowMuchUsers {
@@ -402,4 +435,47 @@ div.mainHomeContainer {
     color: #0089ec;
     text-decoration: none;
     cursor: pointer;
+}
+
+.footer-title span {
+    font-size: 24px;
+}
+
+.footer-desc span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.footer {
+    width: 100%;
+    padding: 30px 50px;
+    background-color: #040404;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.footer a {
+    margin: 6px;
+    color: #0089ec;
+    text-decoration: none;
+}
+
+.footer-container {
+    padding-top: 20px;
+    display: grid;
+    gap: 10%;
+}
+
+@media (min-width: 992px) {
+    .footer-container { 
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+.footer-container div ul {
+    list-style-type: none;
+}
+
+.footer-container div ul li {
+    padding: 4px 0px;
 }

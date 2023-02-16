@@ -7,7 +7,7 @@ function Navbar() {
     <header>
             <div>
               <Link to={"/"}>
-                <img src={Logo} alt="logo" width="56px" />
+                <img src={Logo} alt="logo" className="navbar-icon" />
               </Link>
             </div>
             <nav>
