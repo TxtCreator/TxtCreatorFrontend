@@ -4,10 +4,8 @@ import FileSaver from 'file-saver';
 
 const API_URL = "https://api.txtcreator.pl";
 
-
-
 function Creator() {
-    const [version, setVersion] = useState("1.8");
+    const [version, setVersion] = useState("1.0");
     const [categories, setCategories] = useState([]);
     const [subCategories, setSubCategories] = useState([]);
     const [textures, setTextures] = useState([]);
