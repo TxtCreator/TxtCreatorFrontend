@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import FileSaver from 'file-saver';
+import {useParams} from "react-router-dom";
 
 const API_URL = "https://api.txtcreator.pl";
 
-
-
 function Creator() {
-    const [version, setVersion] = useState("1.8");
+    const { version } = useParams();
     const [categories, setCategories] = useState([]);
     const [subCategories, setSubCategories] = useState([]);
     const [textures, setTextures] = useState([]);
@@ -66,23 +65,14 @@ function Creator() {
     useEffect(() => {
         async function getCategories() {
             try {
-                const data = (await axios.get(API_URL + "/txt/categories/" + version)).data;
+                const data = (await axios.get(API_URL + "/txt/categories/" + version.replace("-", "."))).data;
                 setCategories(data);
             } catch (exception) {
                 setCategories([]);
             }
         }
-        setTextures([]);
-        setError([]);
-        setSubCategories([]);
-        setMinecraftPath("");
-        setTxtModel({
-            name: "texturepack",
-            textures: {
-            }
-        });
         getCategories();
-    }, [version]);
+    }, []);
 
     useEffect(() => {
         setTextures([]);
@@ -90,11 +80,11 @@ function Creator() {
 
     return (
         <>
-            <div className="chooseVersion">
-                <span>Wybierz wersję</span>
-                <a onClick={() => setVersion("1.8")}>1.8</a>
-                <a onClick={() => setVersion("1.16")}>1.16</a>
-            </div>
+            {/*<div className="chooseVersion">*/}
+            {/*    <span>Wybierz wersję</span>*/}
+            {/*    <a onClick={() => setVersion("1.8")}>1.8</a>*/}
+            {/*    <a onClick={() => setVersion("1.16")}>1.16</a>*/}
+            {/*</div>*/}
             <div className="creator">
 
                 <div className="creatorLeftSide creatorLeft">

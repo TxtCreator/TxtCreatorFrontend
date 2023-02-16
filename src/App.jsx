@@ -15,7 +15,7 @@ function App() {
               <Navbar />
               <Routes>
                   <Route path="/" element={<Home />}/>
-                  <Route path="creator" element={<Creator />} />
+                  <Route path="creator/:version" element={<Creator />} />
                   <Route path="about" element={<About />} />
                   <Route path="*" element={<NoPage />} />
               </Routes>

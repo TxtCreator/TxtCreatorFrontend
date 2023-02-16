@@ -19,7 +19,7 @@ function Navbar() {
                 {/*  <Link to={"/about"}>O Nas</Link>*/}
                 {/*</li>*/}
                 <li>
-                  <Link to={"/creator"}>Stwórz TXT</Link>
+                  <Link to={"/creator/1-8"}>Stwórz TXT</Link>
                 </li>
               </ul>
             </nav>

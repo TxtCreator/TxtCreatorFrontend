@@ -419,23 +419,23 @@ div.mainHomeContainer {
     border: #0089ec 1px solid;
 }
 
-.chooseVersion {
-    font-weight: bold;
-    background-color: #090909;
-}
+/*.chooseVersion {*/
+/*    font-weight: bold;*/
+/*    background-color: #090909;*/
+/*}*/
 
-.chooseVersion span {
-    margin: 10px;
-    font-size: 30px;
-}
+/*.chooseVersion span {*/
+/*    margin: 10px;*/
+/*    font-size: 30px;*/
+/*}*/
 
-.chooseVersion a {
-    margin: 10px;
-    font-size: 20px;
-    color: #0089ec;
-    text-decoration: none;
-    cursor: pointer;
-}
+/*.chooseVersion a {*/
+/*    margin: 10px;*/
+/*    font-size: 20px;*/
+/*    color: #0089ec;*/
+/*    text-decoration: none;*/
+/*    cursor: pointer;*/
+/*}*/
 
 .footer-title span {
     font-size: 24px;

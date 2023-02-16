@@ -13,7 +13,7 @@ function HomeContainer() {
                             Narzędzie dzięki któremu w łatwy sposób stworzysz swój <br />wymarzony txtpack.
                         </span>
                     </div>
-                    <Link to="/creator">
+                    <Link to="/creator/1-8">
                         <div className="mainButtonContainer">
                             <button className="mainButton">
                                 <span>Stwórzmy go!</span>
