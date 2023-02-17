@@ -19,7 +19,7 @@ function Footer() {
                 </div>
                 <div>
                     <div><Link to="/">Strona główna</Link></div>
-                    {/*<div><Link to="/about">O nas</Link></div>*/}
+                    <div><Link to="/about">O nas</Link></div>
                     <div><Link to="/menu-creator">Stwórz TXT</Link></div>
                     <div><a target="_blank" href="https://dc.txtcreator.pl">Discord</a></div>
                 </div>
