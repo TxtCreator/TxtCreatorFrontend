@@ -15,9 +15,9 @@ function Navbar() {
                 <li>
                   <Link to={"/"}>Strona główna</Link>
                 </li>
-                {/*<li>*/}
-                {/*  <Link to={"/about"}>O Nas</Link>*/}
-                {/*</li>*/}
+                <li>
+                  <Link to={"/about"}>O Nas</Link>
+                </li>
                 <li>
                   <Link to={"/menu-creator"}>Stwórz TXT</Link>
                 </li>
