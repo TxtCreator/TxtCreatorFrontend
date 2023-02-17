@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import FileSaver from 'file-saver';
 import {useParams} from "react-router-dom";
-import { Link } from "react-router-dom";
 
 const API_URL = "https://api.txtcreator.pl";
 
@@ -16,7 +15,8 @@ function Creator() {
     const [txtModel, setTxtModel] = useState({
         name: "texturepack",
         textures: {
-        }
+        },
+        version: version.replace("-", ".")
     });
 
     function addOrRemoveTexture(texture) {
