@@ -607,3 +607,39 @@ div.mainHomeContainer {
     font-weight: 700;
 }
 
+.about-container {
+    color: #040404;
+    padding: 2% 20%;
+}
+
+.about-container a {
+    color: #0089ec;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.avatars-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.about-container-avatars {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avatars-desc {
+    font-size: 19px;
+    color: rgb(22, 22, 22);
+}
+
+.about-container-avatars div {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 10%;
+}
+
+.about-container-avatars div img {
+    border-radius: 50%;
+}
