@@ -23,7 +23,7 @@ function About() {
                     był w całości napisany w <b>Javie</b> aktualnie cała aplikacja jest napisana w <b>C# (Serwer)</b> a strona w <b>JavaScript z użyciem React i CSS</b>.
                     <br /><br />
                     <h1>Nasz team</h1>
-                    <div class="about-container-avatars">
+                    <div className="about-container-avatars">
                         <div>
                             <img src="/avatar_nes0x.jpeg" width="128px" height="128px" /><br /><br />
                             <span className="avatars-title">Nes0x</span><br />
@@ -38,6 +38,14 @@ function About() {
                             <img src="/avatar_vynt1s.jpeg" width="128px" height="128px" /><br /><br />
                             <span className="avatars-title">Vynt1s</span><br />
                             <span className="avatars-desc">Grafik</span>
+                        </div>
+                    </div>
+                    <h1>Osoby pomagające nam</h1>
+                    <div className="about-container-avatars">
+                        <div>
+                            <img src="/avatar_kalissoo.png" width="128px" height="128px" /><br /><br />
+                            <span className="avatars-title">KaliSsOO</span><br />
+                            <span className="avatars-desc">Autor niektórych tekstur</span>
                         </div>
                     </div>
                 </span>
