@@ -440,8 +440,7 @@ div.mainHomeContainer {
     -webkit-box-shadow: 0px 0px 33px -15px rgba(0, 0, 0, 1);
     -moz-box-shadow: 0px 0px 33px -15px rgba(0, 0, 0, 1);
     box-shadow: 0px 0px 33px -15px rgba(0, 0, 0, 1);
-    overflow_y: scroll;
-
+    overflow-y: none;
     /* Border animation */
     /*--border-size: 3px;*/
     /*--border-angle: 0turn;*/
@@ -461,6 +460,14 @@ div.mainHomeContainer {
     /*background-repeat: no-repeat;*/
 
     /*animation: bg-spin 3s linear infinite;*/
+}
+
+.creator > div > .creatorInner {
+    height: 98%;
+    overflow-y: scroll;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 
@@ -663,3 +670,46 @@ div.mainHomeContainer {
         padding: 2% 3%;
     }
 }
+
+.loader {
+    color: #040404;
+}
+
+@keyframes ldio-miiu7u9rt1r {
+  0% { transform: translate(-50%,-50%) rotate(0deg); }
+  100% { transform: translate(-50%,-50%) rotate(360deg); }
+}
+
+.ldio-miiu7u9rt1r div {
+  position: absolute;
+  width: 129.56px;
+  height: 129.56px;
+  border: 11.479999999999999px solid #0089ec;
+  border-top-color: transparent;
+  border-radius: 50%;
+}
+
+.ldio-miiu7u9rt1r div {
+  animation: ldio-miiu7u9rt1r 1.4492753623188404s linear infinite;
+  top: 82px;
+  left: 82px
+}
+
+.loadingio-spinner-rolling-ma394ftt1bl {
+  width: 164px;
+  height: 164px;
+  display: inline-block;
+  overflow: hidden;
+  background: none;
+}
+
+.ldio-miiu7u9rt1r {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+
+.ldio-miiu7u9rt1r div { box-sizing: content-box; }
