@@ -1,6 +1,5 @@
 import React from 'react';
 
-import ComponentHomeContainer from '../components/HomeContainer';
 import ComponentFooter from '../components/Footer';
 
 function About() {
@@ -40,7 +39,7 @@ function About() {
                             <span className="avatars-desc">Grafik</span>
                         </div>
                     </div>
-                    <h1>Osoby pomagające nam</h1>
+                    <h1>Osoby, które nam pomagają</h1>
                     <div className="about-container-avatars">
                         <div>
                             <img src="/avatar_kalissoo.png" width="128px" height="128px" /><br /><br />

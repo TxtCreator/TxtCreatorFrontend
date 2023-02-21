@@ -21,11 +21,6 @@ function HomeContainer() {
                         </div>
                     </Link>
                 </div>
-                {/*<div className="knowMoreContainer">*/}
-                {/*    Dowiedź się więcej!<br /><br />*/}
-                {/*    /!*Yes I know this arrow sucks lol*!/*/}
-                {/*    <span className="pseudoArrow">\/</span>*/}
-                {/*</div>*/}
             </div>
         </div>
     )

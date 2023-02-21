@@ -2,11 +2,13 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import FileSaver from 'file-saver';
 import {useParams} from "react-router-dom";
+import Loader from "../components/Loader.jsx";
 
 const API_URL = "https://api.txtcreator.pl";
 
 function Creator() {
     const { version } = useParams();
+    const [isLoading, setLoading] = useState(true);
     const [categories, setCategories] = useState([]);
     const [subCategories, setSubCategories] = useState([]);
     const [textures, setTextures] = useState([]);
@@ -68,8 +70,10 @@ function Creator() {
             try {
                 const data = (await axios.get(API_URL + "/txt/categories/" + version.replace("-", "."))).data;
                 setCategories(data);
+                setLoading(false);
             } catch (exception) {
                 setCategories([]);
+                setError("Nie ma takiej wersji!");
             }
         }
         getCategories();
@@ -79,79 +83,75 @@ function Creator() {
         setTextures([]);
     }, [subCategories]);
 
+    if (isLoading) {
+        return <Loader error={error}/>
+    }
     return (
-        <>
-            <div className="creator">
-                <div className="creatorLeftSide creatorLeft">
-                    {/*<div className="top">Grupy tekstur {version}</div>*/}
-                    <div className="creatorInner">
-                        <div className="creatorItemContent">
-                            {
-                                categories.map((category, index) => (
-                                    <div key={index}>
-                                <span className="click" onClick={() => {
-                                    setSubCategories(category.subCategories);
-                                    setMinecraftPath(category.minecraftPath);
-                                }} >
-                                    {category.name[0].toUpperCase() + category.name.slice(1)}
-                                </span>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    </div>
-                </div>
-                <div className="creatorRightSide creatorRight">
-                    {/*<div className="top">Podgrupy tekstur</div>*/}
-                    <div className="creatorInner">
-                        <div className="creatorItemContent">
-                            {
-                                subCategories.map((subCategory, index) => (
-                                    (
-                                        <div key={index}>
-                                    <span className="click" onClick={() => setTextures(subCategory.textures)}>
-                                        {subCategory.name[0].toUpperCase() + subCategory.name.slice(1)}
-                                    </span>
-                                            <br />
-                                        </div>
-                                    )
-                                ))
-                            }
-                        </div>
-                    </div>
-                </div>
-                <div className="creatorRightDownSide creatorRightDown">
-                    {/*<div className="top">Tekstury</div>*/}
-                    <div className="creatorInner">
-                        <div className="creatorItemContent">
-                            {
-                                textures.map((texture, index) => {
-                                    if (txtModel.textures[texture] !== undefined) {
-                                        return <img height="100" key={index} className="textureBorder click" onClick={(event) => addOrRemoveTexture(texture, minecraftPath, event.target)} src={API_URL + "/" + texture} />
-                                    } else {
-                                        return <img className="click" height="100" key={index} onClick={() => addOrRemoveTexture(texture)} src={API_URL + "/" + texture} />
-                                    }
-                                })
-                            }
-                        </div>
-                    </div>
-                </div>
-                <div className="creatorFooterSide creatorFooter">
-                    {/*<div className="top">*/}
-                    {/*    Informacje na temat twojego txt*/}
-                    {/*</div>*/}
-                    <div className="creatorInner">
-                        <div className="creatorItemContent">
-                        <span className="creatorFooterText">
-                            <a href="#" onClick={downloadTxt}>Pobierz TXT</a>, który posiada w sobie {Object.keys(txtModel.textures).length} tekstur/y.
+        <div className="creator">
+            <div className="creatorLeftSide creatorLeft">
+                <div className="creatorInner">
+                    <div className="creatorItemContent">
+                        {
+                            categories.map((category, index) => (
+                                <div key={index}>
+                        <span className="click" onClick={() => {
+                            setSubCategories(category.subCategories);
+                            setMinecraftPath(category.minecraftPath);
+                        }} >
+                            {category.name[0].toUpperCase() + category.name.slice(1)}
                         </span>
-                            {error !== null && <p>{error}</p>}
-                        </div>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>
-        </>
+            <div className="creatorRightSide creatorRight">
+                <div className="creatorInner">
+                    <div className="creatorItemContent">
+                        {
+                            subCategories.map((subCategory, index) => (
+                                (
+                                    <div key={index}>
+                            <span className="click" onClick={() => setTextures(subCategory.textures)}>
+                                {subCategory.name[0].toUpperCase() + subCategory.name.slice(1)}
+                            </span>
+                                        <br />
+                                    </div>
+                                )
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+            <div className="creatorRightDownSide creatorRightDown">
+                <div className="creatorInner">
+                    <div className="creatorItemContent">
+                        {
+                            textures.map((texture, index) => {
+                                if (txtModel.textures[texture] !== undefined) {
+                                    return <img height="100" key={index} className="textureBorder click" onClick={(event) => addOrRemoveTexture(texture, minecraftPath, event.target)} src={API_URL + "/" + texture} />
+                                } else {
+                                    return <img className="click" height="100" key={index} onClick={() => addOrRemoveTexture(texture)} src={API_URL + "/" + texture} />
+                                }
+                            })
+                        }
+                    </div>
+                </div>
+            </div>
+            <div className="creatorFooterSide creatorFooter">
+                <div className="creatorInner">
+                    <div className="creatorItemContent">
+                <span className="creatorFooterText">
+                    <a href="#" onClick={downloadTxt}>Pobierz TXT</a>, który posiada w sobie {Object.keys(txtModel.textures).length} tekstur/y.
+                </span>
+                        {error !== null && <p>{error}</p>}
+                    </div>
+                </div>
+            </div>
+        </div>
     );
+
 }
 
 export default Creator;

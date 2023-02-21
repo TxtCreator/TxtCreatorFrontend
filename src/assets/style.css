@@ -672,6 +672,7 @@ div.mainHomeContainer {
 }
 
 .loader {
+    text-align: center;
     color: #040404;
 }
 
